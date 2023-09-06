@@ -1,0 +1,17 @@
+{
+    "name": "seb/gestion_de_projets",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Seb\\GestionDeProjets\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sébastien GAUTIER",
+            "email": "sgautier034@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
