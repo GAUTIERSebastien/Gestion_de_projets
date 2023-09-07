@@ -6,20 +6,20 @@ use Seb\GestionDeProjets\Entity\Model;
 
 class Users  extends Model
 {
-    private $id_user;
+    private $password;
     private $name;
     private $firstname;
     private $email;
-    private $password;
 
-    public function getId_user()
+
+    public function getPassword()
     {
-        return $this->id_user;
+        return $this->password;
     }
 
-    public function setId_user($id_user)
+    public function setPassword($password)
     {
-        return $this->id_user = $id_user;
+        return $this->$password = $password;
     }
 
     public function getName()
@@ -50,15 +50,5 @@ class Users  extends Model
     public function setEmail($email)
     {
         return $this->$email = $email;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function setPassword($password)
-    {
-        return $this->$password = $password;
     }
 }
