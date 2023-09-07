@@ -2,7 +2,8 @@
 
 require('vendor/autoload.php');
 
-use Digi\Paginaire\Kernel\Dispatcher;
+use Seb\GestionDeProjets\Kernel\Dispatcher;
+
 
 
 $dispatcher = new Dispatcher();

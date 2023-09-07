@@ -1,6 +1,6 @@
 <?php
 
-namespace Digi\Paginaire\Controller;
+namespace Seb\GestionDeProjets\Controller;
 
 use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;

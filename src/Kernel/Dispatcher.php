@@ -4,6 +4,7 @@ namespace Seb\GestionDeProjets\Kernel;
 
 use Seb\GestionDeProjets\Configuration\Config;
 
+
 class Dispatcher
 {
     private $controller;
