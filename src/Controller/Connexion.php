@@ -3,9 +3,10 @@
 namespace Seb\GestionDeProjets\Controller;
 
 use Seb\GestionDeProjets\Kernel\Views;
+use Seb\GestionDeProjets\Kernel\AbstractController;
 
 
-class Connection
+class Connexion extends AbstractController
 {
     public function login()
     {

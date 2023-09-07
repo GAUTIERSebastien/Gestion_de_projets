@@ -17,7 +17,7 @@ class Home extends AbstractController
         $view->setFooter('footer.html');
         $view->render([
             'flash' => $this->getFlashMessage(),
-            'titlePage' => 'Bienvenue sur votre gestion de projets',
+            'titlePage' => 'Bienvenue sur votre gestionnaire de projets',
         ]);
     }
 }

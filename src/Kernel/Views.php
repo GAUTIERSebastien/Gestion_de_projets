@@ -3,7 +3,6 @@
 namespace Seb\GestionDeProjets\Kernel;
 
 use Seb\GestionDeProjets\Configuration\Config;
-use Seb\GestionDeProjets\Kernel\Model;
 
 class Views
 {
