@@ -2,23 +2,20 @@
 
 namespace Seb\GestionDeProjets\Controller;
 
-use Seb\GestionDeProjets\Entity\Users;
 use Seb\GestionDeProjets\Kernel\Views;
 
 
-class User
+class Connection
 {
-    public function index()
+    public function login()
     {
-        $page = isset($_GET['page']);
         $view = new Views();
-        $tabBooks = Users::getAll();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('user.html');
+        $view->setHtml('connexion.html');
         $view->setFooter('footer.html');
         $view->render([
-            'titlePage' => 'Page UserController',
+            'titlePage' => 'Connectez-vous',
         ]);
     }
 }

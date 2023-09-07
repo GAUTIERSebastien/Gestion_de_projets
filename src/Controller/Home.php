@@ -6,10 +6,8 @@ use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;
 
 
-
 class Home extends AbstractController
 {
-
     public function index()
     {
         $view = new Views();
