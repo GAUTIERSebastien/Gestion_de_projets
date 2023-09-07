@@ -1,6 +1,10 @@
 <?php
 
-class Users
+namespace Seb\GestionDeProjets\Entity;
+
+use Seb\GestionDeProjets\Entity\Model;
+
+class Users  extends Model
 {
     private $id_user;
     private $name;
