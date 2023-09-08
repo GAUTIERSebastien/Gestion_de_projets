@@ -36,7 +36,7 @@ class Profil extends AbstractController
                 'name' => $name,
                 'firstname' => $firstname,
                 'email' => $email,
-                'password' => $password
+                'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
 
             header("Location: index.php?controller=Profil&method=showProfil");
