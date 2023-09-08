@@ -28,17 +28,16 @@ class Connexion extends AbstractController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            // Vérification pour s'assurer que les champs email et password ne sont pas vides
             if (empty($email) || empty($password)) {
                 $this->signIn("Veuillez remplir tous les champs.");
                 return;
             }
 
-            $db = DataBase::getInstance();  // Utilise l'instance Singleton de DataBase
+            $db = DataBase::getInstance();
             $auth = new Authenticator($db);
 
             if ($auth->login($email, $password)) {
-                header("Location: index.html"); // Redirige vers la page index.html
+                header("Location: profil.html"); // Redirige vers la page index.html
                 exit;
             } else {
                 $this->signIn("Email ou mot de passe incorrect.");
