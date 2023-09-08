@@ -58,3 +58,5 @@ CREATE TABLE
         FOREIGN KEY(email) REFERENCES Users(email),
         FOREIGN KEY(id_project) REFERENCES Projects(id)
     );
+
+ALTER TABLE Users ADD is_deleted BOOLEAN DEFAULT FALSE;

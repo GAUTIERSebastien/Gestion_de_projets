@@ -59,7 +59,7 @@ class Model
 
     public static function delete(int $id)
     {
-        $sql = "delete from " . self::getEntityName() . " where id=:id";
+        $sql = "update " . self::getEntityName() . " set is_deleted = true where id=:id";
         $db = DataBase::getInstance();
         $pdostatement = $db->prepare($sql);
         return $pdostatement->execute(['id' => $id]);
