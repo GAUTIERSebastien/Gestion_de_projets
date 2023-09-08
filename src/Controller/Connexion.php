@@ -8,7 +8,7 @@ use Seb\GestionDeProjets\Kernel\AbstractController;
 
 class Connexion extends AbstractController
 {
-    public function login()
+    public function signIn()
     {
         $view = new Views();
         $view->setHead('head.html');
