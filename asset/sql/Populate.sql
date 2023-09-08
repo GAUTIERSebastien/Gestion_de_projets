@@ -2,47 +2,36 @@
 
 INSERT INTO
     Users(
-        id_user,
         name,
         firstname,
         email,
         password
     )
 VALUES (
-        1,
         'Dupont',
         'Jean',
         'jean.dupont@email.com',
-        'password123'
-    ),
-    -- Ce sera notre administrateur (
-        2,
+        '$2y$10$W1hTEPqUO0M6Bxw1j/NaIeg2Yqx2W2TvyKr8046SIhwQMoKvce1p.'
+    ), (
         'Martin',
         'Pierre',
         'pierre.martin@email.com',
-        'password456'
+        '$2y$10$9b5G3j8ZUHmWzDo.tmUGG.AjHRru2riDWKlLDJLo6vOjWAtmNONga'
     ), (
-        3,
         'Leroy',
         'Marie',
         'marie.leroy@email.com',
-        'password789'
+        '$2y$10$AppP00wPY74t3xmjE6OlLuQ9tTPPraKrbKC5kN1oZav4wko/NTtzK'
     );
 
 -- Création d'un projet avec Jean Dupont comme administrateur
 
 INSERT INTO
-    Projects(
-        id_project,
-        title,
-        description,
-        id_user
-    )
+    Projects(title, description, email)
 VALUES (
-        1,
         'Projet Exemple',
         'Description du projet exemple',
-        1
+        'jean.dupont@email.com'
     );
 
 -- Création de priorités et statuts pour les tâches
@@ -59,33 +48,32 @@ VALUES ('Non débuté'), ('En cours'), ('Terminé');
 
 -- Jean Dupont est déjà l'administrateur, donc nous ajoutons seulement Pierre et Marie
 
-INSERT INTO Participate(id_user, id_project) VALUES (2, 1), (3, 1);
+INSERT INTO
+    Participate(email, id_project)
+VALUES ('pierre.martin@email.com', 1), ('marie.leroy@email.com', 1);
 
 -- Création de 2 tâches pour le projet
 
 INSERT INTO
     Tasks(
-        id_task,
         title,
         description,
-        id_user,
+        email,
         name_status,
         name_priority,
         id_project
     )
 VALUES (
-        1,
         'Tâche 1',
         'Description de la tâche 1',
-        1,
+        'jean.dupont@email.com',
         'Non débuté',
         'Haute',
         1
     ), (
-        2,
         'Tâche 2',
         'Description de la tâche 2',
-        2,
+        'pierre.martin@email.com',
         'En cours',
         'Moyenne',
         1
