@@ -29,13 +29,11 @@ class Profil extends AbstractController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $name = $_POST['name'];
             $firstname = $_POST['firstname'];
-            $email = $_POST['email'];
             $password = $_POST['password'];
 
             Users::update($_SESSION['id'], [
                 'name' => $name,
                 'firstname' => $firstname,
-                'email' => $email,
                 'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
 
