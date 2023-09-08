@@ -1,4 +1,33 @@
-<main>
+<main class="container mt-5">
 
-    <h1 ><?php echo $titlePage; ?></h1>
+    <h1 class="mb-4"><?php echo $titlePage; ?></h1>
+
+    <form method="post" action="index.php?controller=Profil&method=update">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo $user->getName(); ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $user->getFirstname(); ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<?php echo $user->getEmail(); ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Saisissez votre mot de passe pour mettre à jour le profil">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+
+    <form method="post" action="index.php?controller=Profil&method=delete" class="mt-4">
+        <button type="submit" class="btn btn-danger">Supprimer le compte</button>
+    </form>
+
 </main>

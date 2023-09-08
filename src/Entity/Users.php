@@ -4,61 +4,61 @@ namespace Seb\GestionDeProjets\Entity;
 
 use Seb\GestionDeProjets\Entity\Model;
 
-class Users  extends Model
+class Users extends Model
 {
-    private int $idUsers;
+    private int $id;
     private string $email;
     private string $firstname;
     private string $name;
     private string $password;
 
-
-    public function getIdUsers()
+    public function getId(): int
     {
-        return $this->idUsers;
+        return $this->id;
     }
 
-    public function setIdUsers($idUsers)
+    public function setId(int $id): void
     {
-        return $this->$idUsers = $idUsers;
+        $this->id = $id;
     }
 
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail($email)
+    public function setEmail(string $email): void
     {
-        return $this->$email = $email;
+        $this->email = $email;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(string $name): void
     {
-        return $this->$name = $name;
+        $this->name = $name;
     }
 
-    public function getFirstname()
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
 
-    public function setFirstname($firstname)
+    public function setFirstname(string $firstname): void
     {
-        return $this->$firstname = $firstname;
+        $this->firstname = $firstname;
     }
-    public function getPassword()
+
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword($password)
+    public function setPassword(string $password): void
     {
-        return $this->$password = $password;
+        $this->password = $password;
     }
 }
