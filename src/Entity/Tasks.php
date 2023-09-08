@@ -4,7 +4,7 @@ namespace Seb\GestionDeProjets\Entity;
 
 class Tasks
 {
-    private $id_task;
-    private $title;
-    private $description;
+    private int $idTask;
+    private string $title;
+    private string $description;
 }

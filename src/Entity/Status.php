@@ -4,5 +4,6 @@ namespace Seb\GestionDeProjets\Entity;
 
 class Status
 {
-    private $nameStatus;
+    private int $idStatus;
+    private string $nameStatus;
 }

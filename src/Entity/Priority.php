@@ -4,5 +4,6 @@ namespace Seb\GestionDeProjets\Entity;
 
 class Priority
 {
-    private $namePriority;
+    private int $idPriority;
+    private string $namePriority;
 }

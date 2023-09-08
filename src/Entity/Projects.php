@@ -2,7 +2,7 @@
 
 class Projects
 {
-    private $id_project;
-    private $title;
-    private $description;
+    private int $idProject;
+    private string $title;
+    private string $description;
 }

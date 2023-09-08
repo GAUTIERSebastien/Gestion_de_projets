@@ -6,20 +6,31 @@ use Seb\GestionDeProjets\Entity\Model;
 
 class Users  extends Model
 {
-    private $password;
-    private $name;
-    private $firstname;
-    private $email;
+    private int $idUsers;
+    private string $email;
+    private string $firstname;
+    private string $name;
+    private string $password;
 
 
-    public function getPassword()
+    public function getIdUsers()
     {
-        return $this->password;
+        return $this->idUsers;
     }
 
-    public function setPassword($password)
+    public function setIdUsers($idUsers)
     {
-        return $this->$password = $password;
+        return $this->$idUsers = $idUsers;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        return $this->$email = $email;
     }
 
     public function getName()
@@ -41,14 +52,13 @@ class Users  extends Model
     {
         return $this->$firstname = $firstname;
     }
-
-    public function getEmail()
+    public function getPassword()
     {
-        return $this->email;
+        return $this->password;
     }
 
-    public function setEmail($email)
+    public function setPassword($password)
     {
-        return $this->$email = $email;
+        return $this->$password = $password;
     }
 }
