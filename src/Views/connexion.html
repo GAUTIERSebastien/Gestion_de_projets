@@ -1,30 +1,33 @@
 <main class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-  <div class="register-form">
-    <h1><?php echo $titlePage; ?></h1>
+  <div class="login-form bg-body-tertiary border border-dark rounded p-4 shadow">
+    <h1 class="text-center mb-4"><?php echo $titlePage; ?></h1>
 
     <?php if (isset($errorMessage) && $errorMessage): ?>
-      <p class="error-message"><?php echo $errorMessage; ?></p>
+      <div class="alert alert-danger" role="alert">
+          <?php echo $errorMessage; ?>
+      </div>
     <?php endif; ?>
 
     <form method="post" action="index.php?controller=Connexion&method=handleSignIn">
       
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="email">Email address</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="password">Password</label>
         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
       </div>
 
-      <div class="form-group form-check">
+      <div class="form-group form-check mb-3">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-dark w-100">Submit</button>
 
     </form>
   </div>
 </main>
+

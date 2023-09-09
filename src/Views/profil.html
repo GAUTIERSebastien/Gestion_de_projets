@@ -1,5 +1,5 @@
 <main class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="col-md-4">
+    <div class="profile-form bg-body-tertiary border border-dark rounded p-4 shadow col-md-4">
         <h1 class="text-center mb-4">Profil</h1>
 
         <form method="post" action="index.php?controller=Profil&method=update">
@@ -18,12 +18,14 @@
                 <input type="password" class="form-control" id="password" name="password" value="<?php echo $user->getPassword(); ?>" placeholder="Saisissez votre mot de passe pour mettre à jour le profil">
             </div>
 
-            <button type="submit" class="btn btn-primary mb-3">Mettre à jour</button>
+            <button type="submit" class="btn btn-dark w-100 mb-3">Mettre à jour</button>
         </form>
 
         <form method="post" action="index.php?controller=Profil&method=delete">
-            <button type="submit" class="btn btn-danger">Supprimer le compte</button>
+            <button type="submit" class="btn btn-danger w-100">Supprimer le compte</button>
         </form>
     </div>
 </main>
+
+
 

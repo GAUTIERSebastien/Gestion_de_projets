@@ -1,5 +1,5 @@
 <main class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="col-md-4">
+    <div class="register-form bg-body-tertiary border border-dark rounded p-4 shadow col-md-4">
         <h1 class="text-center mb-4"><?php echo $titlePage; ?></h1>
 
         <?php if (isset($errorMessage)): ?>
@@ -25,9 +25,7 @@
                 <label for="firstname" class="form-label">Prénom</label>
                 <input type="text" class="form-control" id="firstname" name="firstname" required>
             </div>
-            <button type="submit" class="btn btn-primary">S'inscrire</button>
+            <button type="submit" class="btn btn-dark w-100">S'inscrire</button>
         </form>
     </div>
 </main>
-
-
