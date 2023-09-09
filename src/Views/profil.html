@@ -1,6 +1,6 @@
 <main class="container mt-5">
 
-    <h1 class="mb-4"><?php echo $titlePage; ?></h1>
+    <h1 class="mb-4">Profil</h1>
 
     <form method="post" action="index.php?controller=Profil&method=update">
         <div class="mb-3">
@@ -15,7 +15,7 @@
 
         <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Saisissez votre mot de passe pour mettre à jour le profil">
+            <input type="password" class="form-control" id="password" name="password" value="<?php echo $user->getPassword(); ?>" placeholder="Saisissez votre mot de passe pour mettre à jour le profil">
         </div>
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
