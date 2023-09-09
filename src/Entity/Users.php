@@ -11,6 +11,7 @@ class Users extends Model
     private string $firstname;
     private string $name;
     private string $password;
+    private bool $is_deleted;
 
     public function getId(): int
     {
@@ -60,5 +61,15 @@ class Users extends Model
     public function setPassword(string $password): void
     {
         $this->password = $password;
+    }
+
+    public function getIsDeleted(): bool
+    {
+        return $this->is_deleted;
+    }
+
+    public function setIsDeleted(bool $is_deleted): void
+    {
+        $this->is_deleted = $is_deleted;
     }
 }
