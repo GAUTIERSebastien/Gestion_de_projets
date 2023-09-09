@@ -1,28 +1,29 @@
-<main class="container mt-5">
+<main class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-md-4">
+        <h1 class="text-center mb-4">Profil</h1>
 
-    <h1 class="mb-4">Profil</h1>
+        <form method="post" action="index.php?controller=Profil&method=update">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo $user->getName(); ?>">
+            </div>
 
-    <form method="post" action="index.php?controller=Profil&method=update">
-        <div class="mb-3">
-            <label for="name" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo $user->getName(); ?>">
-        </div>
+            <div class="mb-3">
+                <label for="firstname" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $user->getFirstname(); ?>">
+            </div>
 
-        <div class="mb-3">
-            <label for="firstname" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $user->getFirstname(); ?>">
-        </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="password" name="password" value="<?php echo $user->getPassword(); ?>" placeholder="Saisissez votre mot de passe pour mettre à jour le profil">
+            </div>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="password" name="password" value="<?php echo $user->getPassword(); ?>" placeholder="Saisissez votre mot de passe pour mettre à jour le profil">
-        </div>
+            <button type="submit" class="btn btn-primary mb-3">Mettre à jour</button>
+        </form>
 
-        <button type="submit" class="btn btn-primary">Mettre à jour</button>
-    </form>
-
-    <form method="post" action="index.php?controller=Profil&method=delete" class="mt-4">
-        <button type="submit" class="btn btn-danger">Supprimer le compte</button>
-    </form>
-
+        <form method="post" action="index.php?controller=Profil&method=delete">
+            <button type="submit" class="btn btn-danger">Supprimer le compte</button>
+        </form>
+    </div>
 </main>
+
