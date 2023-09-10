@@ -36,18 +36,13 @@ class Register extends AbstractController
                 return;
             }
 
-            // Vérifier si l'e-mail existe déjà
-            $db = DataBase::getInstance();
-            $stmt = $db->prepare("SELECT email FROM Users WHERE email = :email");
-            $stmt->execute([':email' => $email]);
-            $user = $stmt->fetch(\PDO::FETCH_ASSOC);
-
-            if ($user) {
+            // Vérifie si l'e-mail existe déjà
+            if (Users::getByEmail($email)) {
                 $this->signUp("L'adresse e-mail est déjà utilisée.");
                 return;
             }
 
-            // Si tout est bon, insérez le nouvel utilisateur
+            // Si tout est bon, insére le nouvel utilisateur
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             Users::insert([
                 'email' => $email,
@@ -56,7 +51,8 @@ class Register extends AbstractController
                 'firstname' => $firstname
             ]);
 
-            header("Location: index.php?controller=Connexion&method=signIn"); // Redirige vers la page de connexion après l'inscription
+            // Redirige vers la page de connexion après l'inscription
+            header("Location: index.php?controller=Connexion&method=signIn");
             exit;
         } else {
             $this->signUp();

@@ -12,6 +12,7 @@ class Profil extends AbstractController
     public function showProfil()
     {
         $view = new Views();
+
         // Utilise $_SESSION['id'] pour récupérer l'ID de l'utilisateur
         $user = Users::getById($_SESSION['id']);
 

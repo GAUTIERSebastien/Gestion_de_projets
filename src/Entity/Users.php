@@ -72,4 +72,9 @@ class Users extends Model
     {
         $this->is_deleted = $is_deleted;
     }
+
+    public static function getByEmail(string $email)
+    {
+        return self::getByField('email', $email);
+    }
 }

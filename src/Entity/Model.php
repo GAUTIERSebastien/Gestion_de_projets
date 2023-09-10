@@ -44,6 +44,14 @@ class Model
         return $result[0];
     }
 
+    public static function getByField(string $field, $value)
+    {
+        $sql = "SELECT * FROM " . self::getEntityName() . " WHERE $field = :value";
+        $result = self::Execute($sql, [':value' => $value]);
+        return $result ? $result[0] : null;
+    }
+
+
     public static function insert(array $datas)
     {
         $keys = array_keys($datas);
