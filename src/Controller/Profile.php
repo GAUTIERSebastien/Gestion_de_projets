@@ -6,6 +6,7 @@ namespace Seb\GestionDeProjets\Controller;
 use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Entity\Users;
+use Seb\GestionDeProjets\Entity\Projects;
 
 class Profile extends AbstractController
 {
@@ -15,15 +16,19 @@ class Profile extends AbstractController
 
         // Utilise $_SESSION['id'] pour récupérer l'ID de l'utilisateur
         $user = Users::getById($_SESSION['id']);
+        $projects = Projects::getByField('email', $user->getEmail());
 
         $view->setHead('head.html');
         $view->setHeader('header.html');
         $view->setHtml('profile.html');
         $view->setFooter('footer.html');
         $view->render([
-            'user' => $user
+            'user' => $user,
+            'projects' => $projects
         ]);
     }
+
+
 
     public function update()
     {

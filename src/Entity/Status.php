@@ -2,7 +2,9 @@
 
 namespace Seb\GestionDeProjets\Entity;
 
-class Status
+use Seb\GestionDeProjets\Entity\Model;
+
+class Status extends Model
 {
     private int $id;
     private string $name;

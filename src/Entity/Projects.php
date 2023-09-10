@@ -1,6 +1,10 @@
 <?php
 
-class Projects
+namespace Seb\GestionDeProjets\Entity;
+
+use Seb\GestionDeProjets\Entity\Model;
+
+class Projects extends Model
 {
     private int $id;
     private string $title;

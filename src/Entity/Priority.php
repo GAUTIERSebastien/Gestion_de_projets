@@ -2,7 +2,9 @@
 
 namespace Seb\GestionDeProjets\Entity;
 
-class Priority
+use Seb\GestionDeProjets\Entity\Model;
+
+class Priority extends Model
 {
     private int $id;
     private string $name;

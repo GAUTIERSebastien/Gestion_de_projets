@@ -2,7 +2,9 @@
 
 namespace Seb\GestionDeProjets\Entity;
 
-class Tasks
+use Seb\GestionDeProjets\Entity\Model;
+
+class Tasks extends Model
 {
     private int $id;
     private string $title;

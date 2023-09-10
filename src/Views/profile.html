@@ -2,6 +2,20 @@
     <div class="profile-form bg-body-tertiary border border-dark rounded p-4 shadow col-md-4">
         <h1 class="text-center mb-4">Profil</h1>
 
+        <!-- Lien vers les projets de l'utilisateur -->
+        <div class="mb-4">
+            <h3>Mes projets :</h3>
+            <ul>
+                <?php foreach($projects as $project): ?>
+                    <li>
+                        <a href="index.php?controller=ProjectsController&method=showProject&id=<?php echo $project->getId(); ?>">
+                            <?php echo $project->getTitle(); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
         <form method="post" action="index.php?controller=Profile&method=update">
             <div class="mb-3">
                 <label for="name" class="form-label">Nom</label>
@@ -26,6 +40,7 @@
         </form>
     </div>
 </main>
+
 
 
 
