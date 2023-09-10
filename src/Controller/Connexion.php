@@ -37,7 +37,9 @@ class Connexion extends AbstractController
             $auth = new Authenticator($db);
 
             if ($auth->login($email, $password)) {
-                header("Location: index.php?controller=Profil&method=showProfil"); // Redirige vers la page profil.html
+
+                // Redirige vers la page profile.html
+                header("Location: index.php?controller=Profile&method=showProfile");
                 exit;
             } else {
                 $this->signIn("Email ou mot de passe incorrect.");

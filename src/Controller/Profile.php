@@ -7,9 +7,9 @@ use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Entity\Users;
 
-class Profil extends AbstractController
+class Profile extends AbstractController
 {
-    public function showProfil()
+    public function showProfile()
     {
         $view = new Views();
 
@@ -18,7 +18,7 @@ class Profil extends AbstractController
 
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('profil.html');
+        $view->setHtml('profile.html');
         $view->setFooter('footer.html');
         $view->render([
             'user' => $user
@@ -38,7 +38,7 @@ class Profil extends AbstractController
                 'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
 
-            header("Location: index.php?controller=Profil&method=showProfil");
+            header("Location: index.php?controller=Profile&method=showProfile");
             exit;
         }
     }
