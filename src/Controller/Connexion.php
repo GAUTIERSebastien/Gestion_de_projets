@@ -5,10 +5,17 @@ namespace Seb\GestionDeProjets\Controller;
 use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Security\Authenticator;
-use Seb\GestionDeProjets\Kernel\DataBase;
+
 
 class Connexion extends AbstractController
 {
+    private $auth;
+
+    public function __construct()
+    {
+        $this->auth = new Authenticator();
+    }
+
     public function signIn($errorMessage = null)
     {
         $view = new Views();
@@ -33,10 +40,7 @@ class Connexion extends AbstractController
                 return;
             }
 
-            $db = DataBase::getInstance();
-            $auth = new Authenticator($db);
-
-            if ($auth->login($email, $password)) {
+            if ($this->auth->login($email, $password)) {
 
                 // Redirige vers la page profile.html
                 header("Location: index.php?controller=Profile&method=showProfile");
