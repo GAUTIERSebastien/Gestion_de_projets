@@ -6,28 +6,28 @@ use Seb\GestionDeProjets\Entity\Model;
 
 class Status extends Model
 {
-    private int $id;
-    private string $name;
+    private int $id_status;
+    private string $name_status;
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->id_status;
     }
 
-    public function setId(int $id): Status
+    public function setId(int $id_status): Status
     {
-        $this->id = $id;
+        $this->id_status = $id_status;
         return $this;
     }
 
     public function getName(): string
     {
-        return ucfirst($this->name);
+        return ucfirst($this->name_status);
     }
 
-    public function setName(string $name): Status
+    public function setName(string $name_status): Status
     {
-        $this->name = $name;
+        $this->name_status = $name_status;
         return $this;
     }
 }

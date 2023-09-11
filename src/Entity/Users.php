@@ -6,7 +6,7 @@ use Seb\GestionDeProjets\Entity\Model;
 
 class Users extends Model
 {
-    private int $id;
+    private int $id_user;
     private string $email;
     private string $firstname;
     private string $name;
@@ -15,12 +15,12 @@ class Users extends Model
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->id_user;
     }
 
-    public function setId(int $id): void
+    public function setId(int $id_user): void
     {
-        $this->id = $id;
+        $this->id_user = $id_user;
     }
 
     public function getEmail(): string

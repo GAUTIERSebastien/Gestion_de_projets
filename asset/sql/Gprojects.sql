@@ -4,7 +4,7 @@ CREATE TABLE
         email VARCHAR(50) NOT NULL,
         name VARCHAR(50),
         firstname VARCHAR(50),
-        password VARCHAR(50),
+        password VARCHAR(500),
         PRIMARY KEY(id_user)
     );
 
@@ -20,7 +20,7 @@ CREATE TABLE
 
 CREATE TABLE
     Priority(
-        id_piority INT,
+        id_priority INT,
         name_priority VARCHAR(50) NOT NULL,
         PRIMARY KEY(id_piority)
     );
@@ -39,7 +39,7 @@ CREATE TABLE
         description VARCHAR(100),
         id_user INT NOT NULL,
         id_status INT NOT NULL,
-        id_piority INT NOT NULL,
+        id_priority INT NOT NULL,
         id_project INT NOT NULL,
         PRIMARY KEY(id_task),
         FOREIGN KEY(id_user) REFERENCES Users(id_user),
