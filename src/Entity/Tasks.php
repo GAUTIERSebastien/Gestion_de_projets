@@ -95,7 +95,7 @@ class Tasks extends Model
 
     public static function getByProjectId(int $projectId)
     {
-        return self::getAllByField('id', $projectId);
+        return self::getAllByField('id_project', $projectId);
     }
 
     protected static function getPrimaryKeyName()

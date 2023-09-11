@@ -5,7 +5,9 @@ namespace Seb\GestionDeProjets\Controller;
 use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Entity\Projects;
+use Seb\GestionDeProjets\Entity\Status;
 use Seb\GestionDeProjets\Entity\Tasks;
+use Seb\GestionDeProjets\Entity\Priority;
 
 
 class Project extends AbstractController
@@ -17,8 +19,12 @@ class Project extends AbstractController
 
         // Récupère le projet et ses tâches associées
         $project = Projects::getById($projectId);
-        // Supposons que vous ayez une méthode pour obtenir toutes les tâches pour un projet spécifique
+
         $tasks = Tasks::getByProjectId($projectId);
+
+        $statues = Status::getAll();
+
+        $priorities = Priority::getAll();
 
 
         $view = new Views();
@@ -28,7 +34,9 @@ class Project extends AbstractController
         $view->setFooter('footer.html');
         $view->render([
             'project' => $project,
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'statues' => $statues,
+            'priorities' => $priorities
         ]);
     }
 }
