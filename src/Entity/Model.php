@@ -51,6 +51,13 @@ class Model
         return $result ? $result[0] : null;
     }
 
+    public static function getAllByField(string $field, $value)
+    {
+        $sql = "SELECT * FROM " . self::getEntityName() . " WHERE $field = :value";
+        return self::Execute($sql, [':value' => $value]);
+    }
+
+
 
     public static function insert(array $datas)
     {

@@ -16,7 +16,7 @@ class Profile extends AbstractController
 
         // Utilise $_SESSION['id'] pour récupérer l'ID de l'utilisateur
         $user = Users::getById($_SESSION['id']);
-        $projects = Projects::getByField('email', $user->getEmail());
+        $projects = Projects::getAllByField('email', $user->getEmail());
 
         $view->setHead('head.html');
         $view->setHeader('header.html');

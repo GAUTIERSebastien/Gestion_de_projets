@@ -9,6 +9,7 @@
                 <?php foreach($projects as $project): ?>
                     <li>
                         <a href="index.php?controller=ProjectsController&method=showProject&id=<?php echo $project->getId(); ?>">
+
                             <?php echo $project->getTitle(); ?>
                         </a>
                     </li>
