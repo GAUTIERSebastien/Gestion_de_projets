@@ -4,7 +4,6 @@ namespace Seb\GestionDeProjets\Entity;
 
 use Seb\GestionDeProjets\Kernel\DataBase;
 
-
 class Model
 {
     public static $className;
@@ -32,26 +31,22 @@ class Model
 
     public static function getAll()
     {
-        $sql = "select * from " . self::getEntityName();
+        $sql = "SELECT * FROM " . self::getEntityName();
         return self::Execute($sql);
     }
-
 
     public static function getById(int $id)
     {
         $primaryKey = static::getPrimaryKeyName();
-        $sql = "select * from " . self::getEntityName() . " where {$primaryKey}=:id";
+        $sql = "SELECT * FROM " . self::getEntityName() . " WHERE {$primaryKey}=:id";
         $result = self::Execute($sql, ['id' => $id]);
         return $result[0];
     }
-
-
 
     protected static function getPrimaryKeyName()
     {
         return "id";
     }
-
 
     public static function getByField(string $field, $value)
     {
@@ -66,15 +61,13 @@ class Model
         return self::Execute($sql, [':value' => $value]);
     }
 
-
-
     public static function insert(array $datas)
     {
         $keys = array_keys($datas);
         $fields = implode(",", $keys);
         $placeholders = ':' . implode(', :', $keys);
 
-        $sql = "insert into " . self::getEntityName() . " ($fields) values ($placeholders)";
+        $sql = "INSERT INTO " . self::getEntityName() . " ($fields) VALUES ($placeholders)";
 
         $db = DataBase::getInstance();
         $pdostatement = $db->prepare($sql);
@@ -83,11 +76,17 @@ class Model
 
     public static function delete(int $id)
     {
-        $sql = "update " . self::getEntityName() . " set is_deleted = true where id=:id";
+        // Utilisez la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
+        $primaryKey = static::getPrimaryKeyName();
+
+        // Modifiez la requête SQL pour utiliser le bon nom de clé primaire.
+        $sql = "update " . self::getEntityName() . " set is_deleted = true where {$primaryKey}=:{$primaryKey}";
+
         $db = DataBase::getInstance();
         $pdostatement = $db->prepare($sql);
-        return $pdostatement->execute(['id' => $id]);
+        return $pdostatement->execute([$primaryKey => $id]);
     }
+
 
     public static function update(int $id, array $datas)
     {
@@ -95,9 +94,16 @@ class Model
         foreach ($datas as $key => $value) {
             $setClauses[] = "$key=:$key";
         }
-        $sql = "update " . self::getEntityName() . " set " . implode(", ", $setClauses) . " where id=:id";
 
-        $datas['id'] = $id;
+        // Utilise la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
+        $primaryKey = static::getPrimaryKeyName();
+
+        // Modifie la requête SQL pour utiliser le bon nom de clé primaire.
+        $sql = "update " . self::getEntityName() . " set " . implode(", ", $setClauses) . " where {$primaryKey}=:{$primaryKey}";
+
+        // Met à jour le tableau $datas avec le bon nom de clé primaire.
+        $datas[$primaryKey] = $id;
+
         $db = DataBase::getInstance();
         $pdostatement = $db->prepare($sql);
         return $pdostatement->execute($datas);
