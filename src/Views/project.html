@@ -1,27 +1,23 @@
 <main class="container mt-5">
+    <h2><?php echo $project->getTitle(); ?></h2>
+    <p><?php echo $project->getDescription(); ?></p>
+    
     <div class="d-flex justify-content-between">
-        <!-- Colonne pour les tâches non débutées -->
-        <div class="trello-column" data-status="Non débuté">
-            <h4>Non débuté</h4>
-            <div class="trello-tasks">
-                <!-- Les tâches vont ici -->
+        <?php $statuses = Status::getAll(); ?>
+        <?php foreach($statuses as $status): ?>
+            <div class="trello-column" data-status="<?php echo $status->getName(); ?>">
+                <h4><?php echo $status->getName(); ?></h4>
+                <div class="trello-tasks">
+                    <?php foreach($tasks as $task): ?>
+                        <!-- Supposons que chaque tâche ait une méthode getStatusId() et que l'ID corresponde à celui du statut -->
+                        <?php if($task->getStatusId() == $status->getId()): ?>
+                            <!-- Affiche les détails de la tâche ici -->
+                            <p><?php echo $task->getTitle(); ?></p>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
-
-        <!-- Colonne pour les tâches en cours -->
-        <div class="trello-column" data-status="En cours">
-            <h4>En cours</h4>
-            <div class="trello-tasks">
-                <!-- Les tâches vont ici -->
-            </div>
-        </div>
-
-        <!-- Colonne pour les tâches terminées -->
-        <div class="trello-column" data-status="Terminé">
-            <h4>Terminé</h4>
-            <div class="trello-tasks">
-                <!-- Les tâches vont ici -->
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </main>
+

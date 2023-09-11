@@ -42,4 +42,9 @@ class Tasks extends Model
         $this->description = $description;
         return $this;
     }
+
+    public static function getByProjectId(int $projectId)
+    {
+        return self::getAllByField('id', $projectId);
+    }
 }
