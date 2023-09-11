@@ -76,10 +76,10 @@ class Model
 
     public static function delete(int $id)
     {
-        // Utilisez la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
+        // Utilise la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
         $primaryKey = static::getPrimaryKeyName();
 
-        // Modifiez la requête SQL pour utiliser le bon nom de clé primaire.
+        // Requête pour utiliser le bon nom de clé primaire.
         $sql = "update " . self::getEntityName() . " set is_deleted = true where {$primaryKey}=:{$primaryKey}";
 
         $db = DataBase::getInstance();
@@ -95,10 +95,8 @@ class Model
             $setClauses[] = "$key=:$key";
         }
 
-        // Utilise la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
         $primaryKey = static::getPrimaryKeyName();
 
-        // Modifie la requête SQL pour utiliser le bon nom de clé primaire.
         $sql = "update " . self::getEntityName() . " set " . implode(", ", $setClauses) . " where {$primaryKey}=:{$primaryKey}";
 
         // Met à jour le tableau $datas avec le bon nom de clé primaire.

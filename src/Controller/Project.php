@@ -19,11 +19,8 @@ class Project extends AbstractController
 
         // Récupère le projet et ses tâches associées
         $project = Projects::getById($projectId);
-
         $tasks = Tasks::getByProjectId($projectId);
-
         $statues = Status::getAll();
-
         $priorities = Priority::getAll();
 
 
