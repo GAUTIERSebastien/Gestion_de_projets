@@ -54,4 +54,9 @@ class Projects extends Model
         $this->id_user = $id_user;
         return $this;
     }
+
+    protected static function getPrimaryKeyName()
+    {
+        return "id_project";
+    }
 }

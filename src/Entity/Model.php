@@ -39,10 +39,19 @@ class Model
 
     public static function getById(int $id)
     {
-        $sql = "select * from " . self::getEntityName() . " where id=:id";
+        $primaryKey = static::getPrimaryKeyName();
+        $sql = "select * from " . self::getEntityName() . " where {$primaryKey}=:id";
         $result = self::Execute($sql, ['id' => $id]);
         return $result[0];
     }
+
+
+
+    protected static function getPrimaryKeyName()
+    {
+        return "id";
+    }
+
 
     public static function getByField(string $field, $value)
     {

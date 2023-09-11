@@ -30,4 +30,9 @@ class Priority extends Model
         $this->name_priority = $name_priority;
         return $this;
     }
+
+    protected static function getPrimaryKeyName()
+    {
+        return "id_priority";
+    }
 }

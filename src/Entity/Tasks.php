@@ -97,4 +97,9 @@ class Tasks extends Model
     {
         return self::getAllByField('id', $projectId);
     }
+
+    protected static function getPrimaryKeyName()
+    {
+        return "id_task";
+    }
 }

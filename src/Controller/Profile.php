@@ -13,22 +13,24 @@ class Profile extends AbstractController
     public function showProfile()
     {
         $view = new Views();
+        $projects = [];
 
-        // Utilise $_SESSION['id'] pour récupérer l'ID de l'utilisateur
-        $user = Users::getById($_SESSION['id']);
-        $projects = Projects::getAllByField('email', $user->getEmail());
+        if (isset($_SESSION['id'])) {
+            $user = Users::getById($_SESSION['id']);
+            if ($user) {
+                $projects = Projects::getAllByField('id_user', $user->getId());
+            }
+        }
 
         $view->setHead('head.html');
         $view->setHeader('header.html');
         $view->setHtml('profile.html');
         $view->setFooter('footer.html');
         $view->render([
-            'user' => $user,
+            'user' => $user ?? null,
             'projects' => $projects
         ]);
     }
-
-
 
     public function update()
     {

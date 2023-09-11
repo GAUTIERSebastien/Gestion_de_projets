@@ -30,4 +30,9 @@ class Status extends Model
         $this->name_status = $name_status;
         return $this;
     }
+
+    protected static function getPrimaryKeyName()
+    {
+        return "id_status";
+    }
 }
