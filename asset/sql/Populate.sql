@@ -47,7 +47,7 @@ VALUES (
 -- Création de priorités et statuts pour les tâches
 
 INSERT INTO
-    Priority(id_piority, name_priority)
+    Priority(id_priority, name_priority)
 VALUES (1, 'Haute'), (2, 'Moyenne'), (3, 'Basse');
 
 INSERT INTO
@@ -62,16 +62,14 @@ INSERT INTO Participate(id_user, id_project) VALUES (2, 1), (3, 1);
 
 INSERT INTO
     Tasks(
-        id_task,
         title,
         description,
         id_user,
         id_status,
-        id_piority,
+        id_priority,
         id_project
     )
 VALUES (
-        1,
         'Tâche 1',
         'Description de la tâche 1',
         1,
@@ -79,11 +77,38 @@ VALUES (
         1,
         1
     ), (
-        2,
         'Tâche 2',
         'Description de la tâche 2',
         2,
         2,
         2,
+        1
+    ), (
+        'Tâche 3',
+        'Description de la tâche 3',
+        1,
+        1,
+        3,
+        1
+    ), (
+        'Tâche 4',
+        'Description de la tâche 4',
+        2,
+        2,
+        2,
+        1
+    ), (
+        'Tâche 5',
+        'Description de la tâche 5',
+        3,
+        3,
+        1,
+        1
+    ), (
+        'Tâche 6',
+        'Description de la tâche 6',
+        1,
+        1,
+        3,
         1
     );
