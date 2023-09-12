@@ -22,7 +22,7 @@ CREATE TABLE
     Priority(
         id_priority INT,
         name_priority VARCHAR(50) NOT NULL,
-        PRIMARY KEY(id_piority)
+        PRIMARY KEY(id_priority)
     );
 
 CREATE TABLE
@@ -44,7 +44,7 @@ CREATE TABLE
         PRIMARY KEY(id_task),
         FOREIGN KEY(id_user) REFERENCES Users(id_user),
         FOREIGN KEY(id_status) REFERENCES Status(id_status),
-        FOREIGN KEY(id_piority) REFERENCES Priority(id_piority),
+        FOREIGN KEY(id_priority) REFERENCES Priority(id_priority),
         FOREIGN KEY(id_project) REFERENCES Projects(id_project)
     );
 

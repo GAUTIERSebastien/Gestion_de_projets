@@ -42,7 +42,6 @@ class Connexion extends AbstractController
 
             if ($this->auth->login($email, $password)) {
 
-                // Redirige vers la page profile.html
                 header("Location: index.php?controller=Profile&method=showProfile");
                 exit;
             } else {
