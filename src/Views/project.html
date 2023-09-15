@@ -24,7 +24,8 @@
                                         }
                                     ?>
                                     <p class="card-text mt-2"><?php echo $task->getDescription(); ?></p>
-                                    <a class="btn btn-warning"  href="/index.php?controller=Task&method=delete&id=<?php echo $task->getId(); ?>">Supprimer</a>
+                                    <a class="btn btn-danger"  href="/index.php?controller=Task&method=delete&id=<?php echo $task->getId(); ?>">Supprimer</a>
+                                    <a class="btn btn-dark"  href="/index.php?controller=Task&method=update&id=<?php echo $task->getId(); ?>">Modifier</a>
                                     <hr>
                                 <?php endif; ?>
                             <?php endforeach; ?>
