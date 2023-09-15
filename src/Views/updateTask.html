@@ -1,11 +1,11 @@
 <form action="index.php?controller=Task&method=update&id=6" method="post">
     <div class="mb-3">
         <label for="title" class="form-label">Titre</label>
-        <input type="title" class="form-control" id="title" name="title" required>
+        <input type="title" class="form-control" id="title" name="title" value="<?php echo $task->getTitle() ?>" required>
     </div>
     <div class="mb-3">
         <label for="description" class="form-label" >Description</label>
-        <input type="description" class="form-control" id="description" name="description" required>
+        <input type="description" class="form-control" id="description" name="description" value="<?php echo $task->getDescription() ?>" required>
     </div>
 
     <button type="submit" class="btn btn-dark w-100">Enregistrer</button>

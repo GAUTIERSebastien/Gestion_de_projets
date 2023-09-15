@@ -58,10 +58,44 @@ class Task extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('task.html');
+        $view->setHtml('updateTask.html');
         $view->setFooter('footer.html');
         $view->render([
-            'titlePage' => 'Task'
+            'titlePage' => 'Task',
+            'task' => $task,
         ]);
     }
+    // public function create()
+    // {
+    //     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //             $id = $_GET['id'];
+    //             $title = $_POST['title'];
+    //             $description = $_POST['description'];
+    //             $id_user = $task->getIdUser();
+    //             $id_status = $task->getIdStatus();
+    //             $id_priority = $task->getIdPriority();
+    //             $id_project = $task->getIdProject();
+
+    //             Tasks::update($id, [
+    //                 'title' => $title,
+    //                 'description' => $description,
+    //                 'id_user' => $id_user,
+    //                 'id_status' => $id_status,
+    //                 'id_priority' => $id_priority,
+    //                 'id_project' => $id_project
+    //             ]);
+    //             header("Location: index.php?controller=Project&method=showProject&id=$id_project");
+    //         }
+    //     }
+
+    //     $view = new Views();
+    //     $view->setHead('head.html');
+    //     $view->setHeader('header.html');
+    //     $view->setHtml('task.html');
+    //     $view->setFooter('footer.html');
+    //     $view->render([
+    //         'titlePage' => 'Task'
+    //     ]);
+    // }
+
 }
