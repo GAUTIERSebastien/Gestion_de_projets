@@ -26,6 +26,7 @@ class Register extends AbstractController
     public function handleSignUp()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
             $email = $_POST['email'];
             $password = $_POST['password'];
             $name = $_POST['name'];
@@ -45,10 +46,12 @@ class Register extends AbstractController
             // Si tout est bon, insére le nouvel utilisateur
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             Users::insert([
+                'id-user' => null,
                 'email' => $email,
                 'password' => $hashedPassword,
                 'name' => $name,
-                'firstname' => $firstname
+                'firstname' => $firstname,
+                'is_deleted' => '0'
             ]);
 
             // Redirige vers la page de connexion après l'inscription

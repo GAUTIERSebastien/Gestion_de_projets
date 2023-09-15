@@ -74,13 +74,26 @@ class Model
         return $pdostatement->execute($datas);
     }
 
-    public static function delete(int $id)
+    public static function softDelete(int $id)
     {
         // Utilise la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
         $primaryKey = static::getPrimaryKeyName();
 
         // Requête pour utiliser le bon nom de clé primaire.
         $sql = "update " . self::getEntityName() . " set is_deleted = true where {$primaryKey}=:{$primaryKey}";
+
+        $db = DataBase::getInstance();
+        $pdostatement = $db->prepare($sql);
+        return $pdostatement->execute([$primaryKey => $id]);
+    }
+
+    public static function deleteById(int $id)
+    {
+        // Utilise la méthode getPrimaryKeyName pour obtenir le nom correct de la clé primaire.
+        $primaryKey = static::getPrimaryKeyName();
+
+        // Requête pour utiliser le bon nom de clé primaire.
+        $sql = "delete from " . self::getEntityName() . " where {$primaryKey}=:{$primaryKey}";
 
         $db = DataBase::getInstance();
         $pdostatement = $db->prepare($sql);

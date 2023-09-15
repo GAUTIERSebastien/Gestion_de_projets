@@ -7,6 +7,11 @@ use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Security\Authenticator;
 
 
+
+// if (!authenticator::isConnect()){
+//     header("Location: index.php");
+// }
+
 class Connexion extends AbstractController
 {
     private $auth;
@@ -34,6 +39,7 @@ class Connexion extends AbstractController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST['email'];
             $password = $_POST['password'];
+
 
             if (empty($email) || empty($password)) {
                 $this->signIn("Veuillez remplir tous les champs.");

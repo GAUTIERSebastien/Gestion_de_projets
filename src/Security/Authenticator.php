@@ -4,6 +4,8 @@ namespace Seb\GestionDeProjets\Security;
 
 use Seb\GestionDeProjets\Entity\Users;
 
+// session_start();?
+
 class Authenticator
 {
     public function login($email, $password)

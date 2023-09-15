@@ -52,7 +52,7 @@ class Profile extends AbstractController
 
     public function delete()
     {
-        Users::delete($_SESSION['id']);
+        Users::softDelete($_SESSION['id']);
 
         // Déconnecte l'utilisateur après la suppression
         unset($_SESSION['id']);

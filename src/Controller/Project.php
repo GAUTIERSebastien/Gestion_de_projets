@@ -36,4 +36,13 @@ class Project extends AbstractController
             'priorities' => $priorities
         ]);
     }
+
+    // public function delete()
+    // {
+    //     $projectId = $_GET['id'];
+    //     Projects::delete($projectId);
+
+    //     header("Location: index.php?controller=Profile&method=showProfile");
+    //     exit;
+    // }
 }
