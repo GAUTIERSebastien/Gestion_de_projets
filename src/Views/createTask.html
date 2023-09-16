@@ -1,12 +1,16 @@
-<form action="index.php?controller=Task&method=create&id=<?php echo $task->getId()?> " method="post">
-    <div class="mb-3">
+<main class="container d-flex justify-content-center align-items-start" style="min-height: 85vh;">
+    <div class="w-90 mt-5">
+<form action="index.php?controller=Task&method=create&id=<?php $id_project?>" method="post">
+    <div class="form-group mb-3">
         <label for="title" class="form-label" >Titre</label>
-        <input type="title" class="form-control" id="title" name="title" value="<?php echo $task->getTitle() ?>" required>
+        <input type="title" class="form-control" id="title" name="title"      required>
     </div>
-    <div class="mb-3">
+    <div class="form-group mb-3">
         <label for="description" class="form-label" ></label>
         <input type="description" class="form-control" id="description" name="description" required>
     </div>
 
     <button type="submit" class="btn btn-dark w-100">Enregistrer</button>
 </form>
+    </div>
+</main>
