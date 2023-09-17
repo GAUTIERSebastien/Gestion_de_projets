@@ -40,7 +40,7 @@ class Model
         $primaryKey = static::getPrimaryKeyName();
         $sql = "SELECT * FROM " . self::getEntityName() . " WHERE {$primaryKey}=:id";
         $result = self::Execute($sql, ['id' => $id]);
-        return $result[0];
+        return !empty($result) ? $result[0] : null;
     }
 
     protected static function getPrimaryKeyName()

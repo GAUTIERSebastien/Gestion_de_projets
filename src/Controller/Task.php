@@ -6,6 +6,7 @@ use Seb\GestionDeProjets\Kernel\Views;
 use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Entity\Tasks;
 use Seb\GestionDeProjets\Entity\Projects;
+use Seb\GestionDeProjets\Entity\Priority;
 
 
 class Task extends AbstractController
@@ -68,34 +69,53 @@ class Task extends AbstractController
     }
     public function create()
     {
-        if (isset($_GET['id'])) {
-            $id_project = Projects::getById($_GET['id']);
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $id_user = $_POST['id_user'];
-                $id_status = $_POST['id_status'];
-                $id_priority = $_POST['id_priority'];
-                $id_project = $_POST['id_project'];
-
-                Tasks::insert([
-                    'title' => $title,
-                    'description' => $description,
-                    'id_user' => $id_user,
-                    'id_status' => $id_status,
-                    'id_priority' => $id_priority,
-                    'id_project' => $id_project
-                ]);
-            }
+        // Vérifie que l'ID du projet est fourni
+        if (!isset($_GET['id'])) {
+            die("ID de projet non spécifié");
         }
+
+        // Récupére l'objet projet à partir de l'ID
+        $project = Projects::getById((int)$_GET['id']);
+        if (!$project) {
+            die("Le projet n'existe pas.");
+        }
+
+        $id_project = $project->getId();
+        var_dump(" L'id du project ? =>", $id_project);
+        // Si la méthode de la requête est POST, cela signifie que le formulaire de création de tâche a été soumis
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            // Récupére les données du formulaire
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $id_user = $_POST['id_user'];
+            $id_status = $_POST['id_status'];
+            $id_priority = $_POST['id_priority'];
+
+            Tasks::insert([
+                'title' => $title,
+                'description' => $description,
+                'id_user' => $id_user,
+                'id_status' => $id_status,
+                'id_priority' => $id_priority,
+                'id_project' => $id_project
+            ]);
+
+            header("Location: index.php?controller=Project&method=showProject&id=$id_project");
+            exit;
+        }
+
+        // Récupération de toutes les priorités
+        $priorities = Priority::getAll();
+
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
         $view->setHtml('createTask.html');
         $view->setFooter('footer.html');
         $view->render([
-            'titlePage' => 'Task'
+            'titlePage' => 'Task',
+            'priorities' => $priorities
         ]);
-        header("Location: index.php?controller=Project&method=showProject&id=$id_project");
     }
 }
