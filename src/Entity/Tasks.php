@@ -9,7 +9,7 @@ class Tasks extends Model
     private int $id_task;
     private string $title;
     private string $description;
-    private int $id_user;
+    private ?int $id_user = null;
     private int $id_status;
     private int $id_priority;
     private int $id_project;
@@ -47,12 +47,12 @@ class Tasks extends Model
         return $this;
     }
 
-    public function getIdUser(): int
+    public function getIdUser(): ?int
     {
         return $this->id_user;
     }
 
-    public function setIdUser(int $id_user): Tasks
+    public function setIdUser(?int $id_user): Tasks
     {
         $this->id_user = $id_user;
         return $this;

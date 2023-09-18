@@ -8,9 +8,9 @@ use Seb\GestionDeProjets\Entity\Tasks;
 use Seb\GestionDeProjets\Entity\Projects;
 use Seb\GestionDeProjets\Entity\Priority;
 
-
 class Task extends AbstractController
 {
+
     public function index()
     {
         $view = new Views();
@@ -67,6 +67,7 @@ class Task extends AbstractController
             'task' => $task,
         ]);
     }
+
     public function create()
     {
         // Vérifie que l'ID du projet est fourni
@@ -81,15 +82,14 @@ class Task extends AbstractController
         }
 
         $id_project = $project->getId();
-        var_dump(" L'id du project ? =>", $id_project);
+
         // Si la méthode de la requête est POST, cela signifie que le formulaire de création de tâche a été soumis
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
             // Récupére les données du formulaire
             $title = $_POST['title'];
             $description = $_POST['description'];
-            $id_user = $_POST['id_user'];
-            $id_status = $_POST['id_status'];
+            $id_user = $_POST['id_user'] ?? NULL;
+            $id_status = $_POST['id_status'] ?? 1;
             $id_priority = $_POST['id_priority'];
 
             Tasks::insert([
@@ -115,7 +115,8 @@ class Task extends AbstractController
         $view->setFooter('footer.html');
         $view->render([
             'titlePage' => 'Task',
-            'priorities' => $priorities
+            'priorities' => $priorities,
+            'id_project' => $id_project
         ]);
     }
 }

@@ -3,14 +3,18 @@
     <div class="register-form bg-body-tertiary border border-dark rounded p-4 shadow col-md-4">
         <h1 class="text-center mb-4">Créer une Tâche</h1>
 
-<form action="index.php?controller=Task&method=create&id=<?php $id_project?>" method="post">
+        <form action="index.php?controller=Task&method=create&id=<?= $id_project ?>" method="post">
+
+            <input type="hidden" name="id_project" value="<?php echo $id_project; ?>">
+
+
     <div class="form-group mb-3">
         <label for="title" class="form-label" >Titre</label>
-        <input type="title" class="form-control" id="title" name="title"      required>
+        <input type="text" class="form-control" id="title" name="title"      required>
     </div>
     <div class="form-group mb-3">
         <label for="description" class="form-label" >Description</label>
-        <input type="description" class="form-control" id="description" name="description" required>
+        <input type="text" class="form-control" id="description" name="description" required>
     </div>
     <div class="form-group mb-3">
         <label for="priority" class="form-label">Priorité</label>
