@@ -2,14 +2,14 @@
   <div class="login-form bg-body-tertiary border border-dark rounded p-4 shadow">
     <h1 class="text-center mb-4"><?php echo $titlePage; ?></h1>
 
-    <?php if (isset($errorMessage) && $errorMessage): ?>
+    <?php if (isset($errorMessage) && $errorMessage) : ?>
       <div class="alert alert-danger" role="alert">
-          <?php echo $errorMessage; ?>
+        <?php echo $errorMessage; ?>
       </div>
     <?php endif; ?>
 
     <form method="post" action="index.php?controller=Connexion&method=handleSignIn">
-      
+
       <div class="form-group mb-3">
         <label for="email">Email address</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -25,4 +25,3 @@
     </form>
   </div>
 </main>
-

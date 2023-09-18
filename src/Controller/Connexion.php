@@ -26,7 +26,7 @@ class Connexion extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('connexion.html');
+        $view->setHtml('connexion.php');
         $view->setFooter('footer.html');
         $view->render([
             'titlePage' => 'Connectez-vous',

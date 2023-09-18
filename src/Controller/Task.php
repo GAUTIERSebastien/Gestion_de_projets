@@ -60,7 +60,7 @@ class Task extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('updateTask.html');
+        $view->setHtml('updateTask.php');
         $view->setFooter('footer.html');
         $view->render([
             'titlePage' => 'Task',
@@ -111,7 +111,7 @@ class Task extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('createTask.html');
+        $view->setHtml('createTask.php');
         $view->setFooter('footer.html');
         $view->render([
             'titlePage' => 'Task',

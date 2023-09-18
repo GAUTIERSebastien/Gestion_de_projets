@@ -24,7 +24,7 @@ class Profile extends AbstractController
 
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('profile.html');
+        $view->setHtml('profile.php');
         $view->setFooter('footer.html');
         $view->render([
             'user' => $user ?? null,

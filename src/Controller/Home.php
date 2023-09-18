@@ -13,7 +13,7 @@ class Home extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('index.html');
+        $view->setHtml('index.php');
         $view->setFooter('footer.html');
         $view->render([
             'flash' => $this->getFlashMessage(),

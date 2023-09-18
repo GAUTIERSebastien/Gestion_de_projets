@@ -15,7 +15,7 @@ class Register extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('register.html');
+        $view->setHtml('register.php');
         $view->setFooter('footer.html');
         $view->render([
             'titlePage' => 'Inscription',

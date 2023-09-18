@@ -27,7 +27,7 @@ class Project extends AbstractController
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
-        $view->setHtml('project.html');
+        $view->setHtml('project.php');
         $view->setFooter('footer.html');
         $view->render([
             'project' => $project,
