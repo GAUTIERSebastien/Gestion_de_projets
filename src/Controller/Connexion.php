@@ -8,10 +8,6 @@ use Seb\GestionDeProjets\Security\Authenticator;
 
 
 
-// if (!authenticator::isConnect()){
-//     header("Location: index.php");
-// }
-
 class Connexion extends AbstractController
 {
     private $auth;

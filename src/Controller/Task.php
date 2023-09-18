@@ -87,7 +87,6 @@ class Task extends AbstractController
 
         // Si la méthode de la requête est POST, cela signifie que le formulaire de création de tâche a été soumis
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Récupére les données du formulaire
             $title = $_POST['title'];
             $description = $_POST['description'];
             $id_user = $_POST['id_user'] ?? NULL;
