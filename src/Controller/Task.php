@@ -7,6 +7,7 @@ use Seb\GestionDeProjets\Kernel\AbstractController;
 use Seb\GestionDeProjets\Entity\Tasks;
 use Seb\GestionDeProjets\Entity\Projects;
 use Seb\GestionDeProjets\Entity\Priority;
+use Seb\GestionDeProjets\Entity\Status;
 
 class Task extends AbstractController
 {
@@ -40,8 +41,8 @@ class Task extends AbstractController
                 $id = $_GET['id'];
                 $title = $_POST['title'];
                 $description = $_POST['description'];
+                $id_status = $_POST['id_status'];
                 $id_user = $task->getIdUser();
-                $id_status = $task->getIdStatus();
                 $id_priority = $task->getIdPriority();
                 $id_project = $task->getIdProject();
 
@@ -56,7 +57,7 @@ class Task extends AbstractController
                 header("Location: index.php?controller=Project&method=showProject&id=$id_project");
             }
         }
-
+        $statuses = Status::getAll();
         $view = new Views();
         $view->setHead('head.html');
         $view->setHeader('header.html');
@@ -65,6 +66,7 @@ class Task extends AbstractController
         $view->render([
             'titlePage' => 'Task',
             'task' => $task,
+            'statuses' => $statuses,
         ]);
     }
 
