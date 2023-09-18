@@ -5,8 +5,9 @@
         <!-- Lien vers les projets de l'utilisateur -->
         <div class="mb-4">
             <h3>Mes projets :</h3>
+            <a class="btn btn-warning mb-2" href="/index.php?controller=Project&method=create">Nouveau projet</a>
             <ul>
-                <?php foreach($projects as $project): ?>
+                <?php foreach ($projects as $project) : ?>
                     <li>
                         <a href="index.php?controller=Project&method=showProject&id=<?php echo $project->getId(); ?>">
 
@@ -41,7 +42,3 @@
         </form>
     </div>
 </main>
-
-
-
-
