@@ -46,7 +46,6 @@ class Register extends AbstractController
             // Si tout est bon, insére le nouvel utilisateur
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             Users::insert([
-                'id-user' => null,
                 'email' => $email,
                 'password' => $hashedPassword,
                 'name' => $name,
