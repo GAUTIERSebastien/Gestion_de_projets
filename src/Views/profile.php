@@ -5,7 +5,7 @@
         <!-- Lien vers les projets de l'utilisateur -->
         <div class="mb-4">
             <h3>Mes projets :</h3>
-            <a class="btn btn-warning mb-2" href="/index.php?controller=Project&method=create">Nouveau projet</a>
+
             <ul>
                 <?php foreach ($projects as $project) : ?>
                     <li>
@@ -17,7 +17,7 @@
                 <?php endforeach; ?>
             </ul>
         </div>
-
+        <a class="btn btn-warning mb-2" href="/index.php?controller=Project&method=create">Nouveau projet</a>
         <form method="post" action="index.php?controller=Profile&method=update">
             <div class="mb-3">
                 <label for="name" class="form-label">Nom</label>

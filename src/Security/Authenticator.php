@@ -4,7 +4,10 @@ namespace Seb\GestionDeProjets\Security;
 
 use Seb\GestionDeProjets\Entity\Users;
 
-// session_start();?
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 class Authenticator
 {
